@@ -13,6 +13,32 @@ const counters = 8
 const flags = 32
 const alternateRooms = 6
 
+// Not used yet. Will make it possible to have multiple games loaded
+type gameStaticData struct {
+	filename          string
+	advVariable       map[string]int
+	action            [][]int
+	verb              []string
+	noun              []string
+	roomDirection     []map[int]int
+	roomDescription   []string
+	message           []string
+	itemDescription   []string
+	itemNoun          []string
+	itemStartLocation []int
+	actionComment     []string
+	treasureItem      []int
+}
+
+// Not used yet. Makes it possible to run many players at the same time
+type gameDynamicData struct {
+	currentRoom      int
+	itemLocation     []int
+	bitFlag          []bool
+	alternateCounter []int
+	alternateRoom    []int
+}
+
 func main() {
 	// Load a new game data file
 	advVariable,
