@@ -22,21 +22,7 @@ const flagDark = 16
 const flagLampEmpty = 17
 const itemLight = 10
 
-func loadData(filename string) (
-	map[string]int, // advVariable
-	[][]int, // action
-	[]string, // verb
-	[]string, // noun
-	[]map[int]int, // roomDirection
-	[]string, // roomDescription
-	[]string, // message
-	[]string, // itemDescription
-	[]string, // itemNoun
-	[]int, // itemStartLocation
-	[]string, // actionComment
-	[]int, // treasureItem
-
-) {
+func loadData(gameData *gameStaticData) {
 	fieldIndex := 0
 	var advVariable map[string]int
 	advVariable = make(map[string]int)
@@ -47,7 +33,7 @@ func loadData(filename string) (
 	   treasureItem */
 
 	var advData []string
-	advData = getDataArray(filename)
+	advData = getDataArray(gameData.filename)
 
 	// Get header variables
 	advVariable["sizeOfText"] = getNumber(advData, &fieldIndex)
@@ -122,9 +108,21 @@ func loadData(filename string) (
 	advVariable["engineVersion"] = getNumber(advData, &fieldIndex)
 	advVariable["adventureNumber"] = getNumber(advData, &fieldIndex)
 	advVariable["gameChecksum"] = getNumber(advData, &fieldIndex)
-	return advVariable, action, verb, noun, roomDirection, roomDescription, message,
-		itemDescription, itemNoun, itemStartLocation, actionComment,
-		treasureItem
+
+	gameData.advVariable = advVariable
+	gameData.action = action
+	gameData.verb = verb
+	gameData.noun = noun
+	gameData.roomDirection = roomDirection
+	gameData.roomDescription = roomDescription
+	gameData.message = message
+	gameData.itemDescription = itemDescription
+	gameData.itemNoun = itemNoun
+	gameData.itemStartLocation = itemStartLocation
+	gameData.actionComment = actionComment
+	gameData.treasureItem = treasureItem
+
+	return
 }
 
 func getRoom(advField []string, fieldIndex *int) (string, map[int]int) {

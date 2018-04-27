@@ -13,7 +13,7 @@ const counters = 8
 const flags = 32
 const alternateRooms = 6
 
-// Not used yet. Will make it possible to have multiple games loaded
+// Contains all the data from a game file
 type gameStaticData struct {
 	filename          string
 	advVariable       map[string]int
@@ -30,7 +30,7 @@ type gameStaticData struct {
 	treasureItem      []int
 }
 
-// Not used yet. Makes it possible to run many players at the same time
+// Contains all the data for a player session
 type gameDynamicData struct {
 	currentRoom      int
 	itemLocation     []int
@@ -40,54 +40,46 @@ type gameDynamicData struct {
 }
 
 func main() {
-	// Load a new game data file
-	advVariable,
-		action,
-		verb,
-		noun,
-		roomDirection,
-		roomDescription,
-		message,
-		itemDescription,
-		itemNoun,
-		itemStartLocation,
-		actionComment,
-		treasureItem := loadData("adv01.dat")
+	var loadedGame gameStaticData
+	loadedGame.filename = "adv01.dat"
+	loadData(&loadedGame)
 
-	// Initialize variable game data
-	var currentRoom int
-	var itemLocation []int
-	var bitFlag []bool
-	var alternateCounter []int
-	var alternateRoom []int
+	var gameInstance gameDynamicData
 
-	currentRoom, itemLocation, bitFlag, alternateCounter, alternateRoom = initGame(advVariable, itemStartLocation)
+	initGame(loadedGame.advVariable, loadedGame.itemStartLocation, &gameInstance)
 
 	// Print some stuff, to get the program to compile without being complete...
-	fmt.Println(currentRoom)
-	fmt.Println(itemLocation[0])
-	fmt.Println(bitFlag[0])
-	fmt.Println(alternateCounter[0])
-	fmt.Println(alternateRoom[0])
-	fmt.Println(advVariable["wordLength"])
-	fmt.Println(action[0][0])
-	fmt.Println(verb[0])
-	fmt.Println(noun[0])
-	fmt.Println(roomDirection[0][0])
-	fmt.Println(roomDescription[0])
-	fmt.Println(message[0])
-	fmt.Println(itemDescription[0])
-	fmt.Println(itemNoun[0])
-	fmt.Println(itemStartLocation[0])
-	fmt.Println(actionComment[0])
-	fmt.Println(treasureItem[0])
+	fmt.Println(gameInstance.currentRoom)
+	fmt.Println(gameInstance.itemLocation[0])
+	fmt.Println(gameInstance.bitFlag[0])
+	fmt.Println(gameInstance.alternateCounter[0])
+	fmt.Println(gameInstance.alternateRoom[0])
+
+	fmt.Println(loadedGame.advVariable["wordLength"])
+	fmt.Println(loadedGame.action[0][0])
+	fmt.Println(loadedGame.verb[0])
+	fmt.Println(loadedGame.noun[0])
+	fmt.Println(loadedGame.roomDirection[0][0])
+	fmt.Println(loadedGame.roomDescription[0])
+	fmt.Println(loadedGame.message[0])
+	fmt.Println(loadedGame.itemDescription[0])
+	fmt.Println(loadedGame.itemNoun[0])
+	fmt.Println(loadedGame.itemStartLocation[0])
+	fmt.Println(loadedGame.actionComment[0])
+	fmt.Println(loadedGame.treasureItem[0])
 }
 
-func initGame(advVariable map[string]int, itemStartLocation []int) (int, []int, []bool, []int, []int) {
+func initGame(advVariable map[string]int, itemStartLocation []int, instance *gameDynamicData) {
 	itemLocation := make([]int, len(itemStartLocation))
 	copy(itemLocation, itemStartLocation)
 	bitFlag := make([]bool, flags)
 	alternateCounter := make([]int, counters)
 	alternateRoom := make([]int, alternateRooms)
-	return advVariable["startingRoom"], itemLocation, bitFlag, alternateCounter, alternateRoom
+
+	instance.currentRoom = advVariable["startingRoom"]
+	instance.itemLocation = itemLocation
+	instance.bitFlag = bitFlag
+	instance.alternateCounter = alternateCounter
+	instance.alternateRoom = alternateRoom
+	return
 }
