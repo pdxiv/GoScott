@@ -15,7 +15,6 @@ const alternateRooms = 6
 
 // Contains all the data from a game file
 type gameStaticData struct {
-	filename          string
 	advVariable       map[string]int
 	action            [][]int
 	verb              []string
@@ -41,14 +40,14 @@ type gameDynamicData struct {
 
 func main() {
 	var loadedGame gameStaticData
-	loadedGame.filename = "adv01.dat"
-	loadData(&loadedGame)
-
+	loadData("adv01.dat", &loadedGame)
 	var gameInstance gameDynamicData
-
 	initGame(loadedGame.advVariable, loadedGame.itemStartLocation, &gameInstance)
+	printSomeGameData(&gameInstance, &loadedGame)
+	getConsoleInput(&loadedGame)
+}
 
-	// Print some stuff, to get the program to compile without being complete...
+func printSomeGameData(gameInstance *gameDynamicData, loadedGame *gameStaticData) {
 	fmt.Println(gameInstance.currentRoom)
 	fmt.Println(gameInstance.itemLocation[0])
 	fmt.Println(gameInstance.bitFlag[0])

@@ -22,7 +22,7 @@ const flagDark = 16
 const flagLampEmpty = 17
 const itemLight = 10
 
-func loadData(gameData *gameStaticData) {
+func loadData(filename string, gameData *gameStaticData) {
 	fieldIndex := 0
 	var advVariable map[string]int
 	advVariable = make(map[string]int)
@@ -33,7 +33,7 @@ func loadData(gameData *gameStaticData) {
 	   treasureItem */
 
 	var advData []string
-	advData = getDataArray(gameData.filename)
+	advData = getDataArray(filename)
 
 	// Get header variables
 	advVariable["sizeOfText"] = getNumber(advData, &fieldIndex)
