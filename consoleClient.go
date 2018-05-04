@@ -6,7 +6,8 @@ import (
 	"os"
 )
 
-func getConsoleInput( loadedGame *gameStaticData) {
+// Placeholder console UI code
+func getConsoleInput(loadedGame *gameStaticData) {
 	wordLength := loadedGame.advVariable["wordLength"]
 	fmt.Println("wordLength", wordLength)
 	reader := bufio.NewReader(os.Stdin)
@@ -15,6 +16,6 @@ func getConsoleInput( loadedGame *gameStaticData) {
 	fmt.Println(text)
 }
 
-func extractWords() {
+func extractWords(loadedGame *gameStaticData) {
 
 }

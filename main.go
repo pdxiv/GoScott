@@ -44,28 +44,30 @@ func main() {
 	var gameInstance gameDynamicData
 	initGame(loadedGame.advVariable, loadedGame.itemStartLocation, &gameInstance)
 	printSomeGameData(&gameInstance, &loadedGame)
-	getConsoleInput(&loadedGame)
+	for {
+		getConsoleInput(&loadedGame)
+	}
 }
 
 func printSomeGameData(gameInstance *gameDynamicData, loadedGame *gameStaticData) {
-	fmt.Println(gameInstance.currentRoom)
-	fmt.Println(gameInstance.itemLocation[0])
-	fmt.Println(gameInstance.bitFlag[0])
-	fmt.Println(gameInstance.alternateCounter[0])
-	fmt.Println(gameInstance.alternateRoom[0])
+	fmt.Println("currentRoom", gameInstance.currentRoom)
+	fmt.Println("itemLocation[0]", gameInstance.itemLocation[0])
+	fmt.Println("bitFlag[0]", gameInstance.bitFlag[0])
+	fmt.Println("alternateCounter[0]", gameInstance.alternateCounter[0])
+	fmt.Println("alternateRoom[0]", gameInstance.alternateRoom[0])
 
-	fmt.Println(loadedGame.advVariable["wordLength"])
-	fmt.Println(loadedGame.action[0][0])
-	fmt.Println(loadedGame.verb[0])
-	fmt.Println(loadedGame.noun[0])
-	fmt.Println(loadedGame.roomDirection[0][0])
-	fmt.Println(loadedGame.roomDescription[0])
-	fmt.Println(loadedGame.message[0])
-	fmt.Println(loadedGame.itemDescription[0])
-	fmt.Println(loadedGame.itemNoun[0])
-	fmt.Println(loadedGame.itemStartLocation[0])
-	fmt.Println(loadedGame.actionComment[0])
-	fmt.Println(loadedGame.treasureItem[0])
+	fmt.Println("advVariable[\"wordLength\"]", loadedGame.advVariable["wordLength"])
+	fmt.Println("action[0][0]", loadedGame.action[0][0])
+	fmt.Println("verb[0]", loadedGame.verb[0])
+	fmt.Println("noun[0]", loadedGame.noun[0])
+	fmt.Println("roomDirection[0][0]", loadedGame.roomDirection[0][0])
+	fmt.Println("roomDescription[0]", loadedGame.roomDescription[0])
+	fmt.Println("message[0]", loadedGame.message[0])
+	fmt.Println("itemDescription[0]", loadedGame.itemDescription[0])
+	fmt.Println("itemNoun[0]", loadedGame.itemNoun[0])
+	fmt.Println("itemStartLocation[0]", loadedGame.itemStartLocation[0])
+	fmt.Println("actionComment[0]", loadedGame.actionComment[0])
+	fmt.Println("treasureItem[0]", loadedGame.treasureItem[0])
 }
 
 func initGame(advVariable map[string]int, itemStartLocation []int, instance *gameDynamicData) {
