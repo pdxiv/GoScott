@@ -126,6 +126,8 @@ func loadData(filename string, gameData *gameStaticData) {
 }
 
 func getRoom(advField []string, fieldIndex *int) (string, map[int]int) {
+	descriptionPattern := regexp.MustCompile(`^\*(.*)`)
+
 	roomDirection := make(map[int]int)
 	var exit int
 	for i := 0; i < 6; i++ {
@@ -135,6 +137,12 @@ func getRoom(advField []string, fieldIndex *int) (string, map[int]int) {
 		}
 	}
 	description := getText(advField, fieldIndex)
+	// Remove asterisks in front of room descriptions, else add "I'm in a "
+	if descriptionPattern.MatchString(description) {
+		description = descriptionPattern.ReplaceAllString(description, "$1")
+	} else {
+		description = "I'm in a " + description
+	}
 	return description, roomDirection
 }
 

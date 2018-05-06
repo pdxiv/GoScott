@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 // The following constants denote various limitations in the engine
@@ -43,10 +44,27 @@ func main() {
 	loadData("adv01.dat", &loadedGame)
 	var gameInstance gameDynamicData
 	initGame(loadedGame.advVariable, loadedGame.itemStartLocation, &gameInstance)
-	printSomeGameData(&gameInstance, &loadedGame)
+	// printSomeGameData(&gameInstance, &loadedGame)
+	showRoomDescription(&gameInstance, &loadedGame)
 	for {
 		getConsoleInput(&loadedGame)
 	}
+}
+
+func showRoomDescription(gameInstance *gameDynamicData, loadedGame *gameStaticData) {
+	// gameInstance.currentRoom = 6 // debug
+	fmt.Println(loadedGame.roomDescription[gameInstance.currentRoom])
+	var objectInRoom []string
+	for index, element := range gameInstance.itemLocation {
+		if element == gameInstance.currentRoom {
+			objectInRoom = append(objectInRoom, loadedGame.itemDescription[index])
+		}
+	}
+	if len(objectInRoom) > 0 {
+		fmt.Println("Visible items here:")
+		fmt.Println(strings.Join(objectInRoom, ", "))
+	}
+	return
 }
 
 func printSomeGameData(gameInstance *gameDynamicData, loadedGame *gameStaticData) {
