@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -41,14 +42,19 @@ type gameDynamicData struct {
 
 func main() {
 	var loadedGame gameStaticData
-	loadData("adv01.dat", &loadedGame)
+	if len(os.Args) < 2 {
+		fmt.Println("Missing parameter, provide file name!")
+		return
+	}
+	filename := os.Args[1]
+	loadData(filename, &loadedGame)
 	var gameInstance gameDynamicData
 	initGame(loadedGame.advVariable, loadedGame.itemStartLocation, &gameInstance)
 	// printSomeGameData(&gameInstance, &loadedGame)
 	showRoomDescription(&gameInstance, &loadedGame)
-	for {
+	/*for {
 		getConsoleInput(&loadedGame)
-	}
+	}*/
 }
 
 func showRoomDescription(gameInstance *gameDynamicData, loadedGame *gameStaticData) {

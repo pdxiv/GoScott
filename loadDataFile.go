@@ -1,6 +1,7 @@
 package main
 
 import (
+	// "fmt"
 	"io/ioutil"
 	"regexp"
 	"strconv"
@@ -235,6 +236,7 @@ func getNumber(advField []string, fieldIndex *int) int {
 	cleanedText = r.FindStringSubmatch(advField[*fieldIndex])
 	*fieldIndex++
 	decodedNumber, _ = strconv.Atoi(cleanedText[0])
+	// fmt.Println(decodedNumber)
 	return decodedNumber
 }
 
