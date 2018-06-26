@@ -9,3 +9,4 @@ There are some enhancements that can be made to the "stock" engine to make it mo
 - Turn remaining hard-coded events in the original engine into actions (light source, "SCORE", "DIE", "DSPRM" (etc?)).
   - This can possibly be done by introducing a "GOSUB" command, which calls a numbered action entry.
   - Introduce "not a move" command code, which stops processing of the next set of auto actions, for creating informative error messages.
+- Implement "SCORE" and treasure functionality by having an action dedicated for each treasure object, to check if the object is in the "treasure room". If the treasure object is located in the treasure room, increment counter 9. To show the score, commands for doing multiplication and division on the counters must be available. The correct way to calculate the score is 100*counter/number_of_treasures. The new commands are "CT*n" (counter_multiply) and "CT/n" (counter_divide).
