@@ -52,9 +52,9 @@ func main() {
 	initGame(loadedGame.advVariable, loadedGame.itemStartLocation, &gameInstance)
 	// printSomeGameData(&gameInstance, &loadedGame)
 	showRoomDescription(&gameInstance, &loadedGame)
-	/*for {
-		getConsoleInput(&loadedGame)
-	}*/
+	// for {
+	getConsoleInput(&loadedGame)
+	// }
 }
 
 func showRoomDescription(gameInstance *gameDynamicData, loadedGame *gameStaticData) {

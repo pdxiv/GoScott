@@ -221,7 +221,7 @@ func getItem(advField []string, fieldIndex *int) (string, string, int) {
 	noun := textField[1]
 	textRoomNumber := textField[2]
 	roomNumber, _ := strconv.Atoi(textRoomNumber)
-	return description, noun, roomNumber
+	return description, strings.ToUpper(noun), roomNumber
 }
 
 func isTreasure(description string) bool {
@@ -242,8 +242,8 @@ func getNumber(advField []string, fieldIndex *int) int {
 
 func getWord(advField []string, fieldIndex *int) [2]string {
 	var word [2]string
-	word[0] = getText(advField, fieldIndex)
-	word[1] = getText(advField, fieldIndex)
+	word[0] = strings.ToUpper(getText(advField, fieldIndex))
+	word[1] = strings.ToUpper(getText(advField, fieldIndex))
 	return word
 }
 
