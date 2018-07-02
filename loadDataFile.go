@@ -1,7 +1,7 @@
 package main
 
 import (
-	// "fmt"
+	"fmt"
 	"io/ioutil"
 	"regexp"
 	"strconv"
@@ -89,9 +89,17 @@ func loadData(filename string, gameData *gameStaticData) {
 	var itemStartLocation []int
 	var treasureItem []int
 	for i := 0; i < advVariable["numberOfItems"]+1; i++ {
-		description, noun, startLocation := getItem(advData, &fieldIndex)
+		description, foundNoun, startLocation := getItem(advData, &fieldIndex)
 		itemDescription = append(itemDescription, description)
-		itemNoun = append(itemNoun, noun)
+
+		// Some testing, to evaluate the possibility of storing noun numbers,
+		// rather than text for items. This should probably require adding noun
+		// entries from word nouns, if they are missing in the noun list.
+		fmt.Println(foundNoun, findWordInList(foundNoun, noun, advVariable["wordLength"], 1))
+		// End of testing
+
+		itemNoun = append(itemNoun, foundNoun)
+
 		itemStartLocation = append(itemStartLocation, startLocation)
 		if isTreasure(description) {
 			treasureItem = append(treasureItem, i)
@@ -197,6 +205,10 @@ func getText(advField []string, fieldIndex *int) string {
 	return textLine
 }
 
+func identifyItemNoun(noun string) {
+
+}
+
 func getItem(advField []string, fieldIndex *int) (string, string, int) {
 	textLine := ""
 	quotes := regexp.MustCompile(`"[^"]*`)
@@ -217,8 +229,9 @@ func getItem(advField []string, fieldIndex *int) (string, string, int) {
 	}
 	textLine = padding.ReplaceAllString(textLine, "$1")
 	textField := fields.FindStringSubmatch(textLine)[1:]
-	description := textField[0]
+	description := textField[0] // There is a bug here, sending the noun with the description. Visible when running adv05.dat
 	noun := textField[1]
+
 	textRoomNumber := textField[2]
 	roomNumber, _ := strconv.Atoi(textRoomNumber)
 	return description, strings.ToUpper(noun), roomNumber

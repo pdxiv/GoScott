@@ -44,8 +44,8 @@ func findWordInList(wordToLookFor string, wordList []string, wordLength int, lis
 		}
 		if len(wordToEvaluate) > wordLength {
 			wordToEvaluate = wordToEvaluate[0:wordLength]
-		}		
-		if wordToEvaluate == wordToLookFor {		
+		}
+		if wordToEvaluate == wordToLookFor {
 			result = append(result, baseWord)
 		}
 	}
