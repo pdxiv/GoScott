@@ -70,11 +70,10 @@ func extractWords(textInput string) ([]string, bool) {
 	r := regexp.MustCompile(`(?P<Verb>\w+)\s*(?P<Noun>\w*)`)
 	match := r.MatchString(textInput)
 	var verbText, nounText string
-	if match {
-		verbText = r.FindStringSubmatch(strings.ToUpper(textInput))[1]
-		nounText = r.FindStringSubmatch(strings.ToUpper(textInput))[2]
-		return []string{verbText, nounText}, true
-	} else {
+	if match != true {
 		return []string{"", ""}, false
 	}
+	verbText = r.FindStringSubmatch(strings.ToUpper(textInput))[1]
+	nounText = r.FindStringSubmatch(strings.ToUpper(textInput))[2]
+	return []string{verbText, nounText}, true
 }

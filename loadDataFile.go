@@ -180,12 +180,12 @@ func getAction(advField []string, fieldIndex *int) []int {
 
 	// Extract commands
 	{
-		var first_command, second_command int
+		var firstCommand, secondCommand int
 		for i := 6; i < 8; i++ {
-			first_command = actionPart[i] % 150
-			second_command = actionPart[i] / 150
-			actionEntry = append(actionEntry, first_command)
-			actionEntry = append(actionEntry, second_command)
+			firstCommand = actionPart[i] % 150
+			secondCommand = actionPart[i] / 150
+			actionEntry = append(actionEntry, firstCommand)
+			actionEntry = append(actionEntry, secondCommand)
 		}
 	}
 	return actionEntry
