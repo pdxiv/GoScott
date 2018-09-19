@@ -1,4 +1,7 @@
+# Actions and Commands in ScottKit
+
 ## Conditions
+
 Mnemonic | Parameter | Description
 -------- | --------- | -----------
 at | room | True if the player's current room is ROOM, which must be the name of a room defined somewhere in the ScottKit file.
@@ -22,6 +25,7 @@ counter_le | num | True if the current counter's value is NUM or less.
 counter_gt | num | True if the current counter's value is greater than NUM. Note the asymmetry here: you can check for less-than-or-equal, or strictly-greater-than; but not for strictly-less-than or greater-than-or-equal.
 
 ## Commands
+
 Mnemonic | Parameter(s) | Description
 -------- | ------------ | -----------
 print | string | Prints the specified string. Within that string, \n sequences are interpreted as newlines, and \t sequences as tabs. Since double-quotes are used to enclose the string, they may not appear within it. So backquotes (`) are replaced by double quotes when they are printed.
