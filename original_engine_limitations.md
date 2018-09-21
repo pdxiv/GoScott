@@ -51,3 +51,8 @@ There are some enhancements that can be made to the "stock" engine to make it mo
   - This can possibly be done by introducing some sort of "GOSUB" command, which calls a numbered action entry.
   - Introduce "not a move" command code, which stops processing of the next set of auto actions, for creating informative error messages.
 - Implement "SCORE" and treasure functionality by having an action dedicated for each treasure object, to check if the object is in the "treasure room". If the treasure object is located in the treasure room, increment counter 9. To show the score, commands for doing multiplication and division on the counters must be available. The correct way to calculate the score is 100\*counter/number_of_treasures. The new commands are "CT*n" (counter_multiply) and "CT/n" (counter_divide).
+
+## Text parser
+
+- Missing support for prepositions. The text parser uses a two word system for verb and noun. In some situations, a preposition is needed to adequately describe what must happen. For example: "Kill Dragon with Sword".
+- Missing support for spaces in verb phrases and noun phrases in the dictionary.
