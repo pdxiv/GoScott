@@ -58,4 +58,4 @@ There are some enhancements that can be made to the "stock" engine to make it mo
   - One way to solve this, may be to allow the user to write several verb-noun statements on one line. Prepositions could be triggered with a "fall-through" mechanism that keeps executing the next action, when the statement is matched.
 - Missing support for spaces in verb phrases and noun phrases in the dictionary.
 - Hard-coded "wildcard" on words which have an equal number of characters to the character limit.
-  - For maximum flexibility, wildcard behavior could be explicitly specified on a per-word basis instead, so that `SWO\*` could be a short form for `SWORD`.
+  - For maximum flexibility, wildcard behavior could be explicitly specified on a per-word basis instead, so that `SWO*` could be a short form for `SWORD`.
