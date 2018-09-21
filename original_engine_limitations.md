@@ -37,6 +37,7 @@ Other things depend on words being present in particular positions in the verb/n
 - GO is not implemented as a word action. references fixed nouns 1-6. Referenced by fixed verb.
 - GET is not implemented as a word action. Referenced by fixed verb.
 - Light references hard-coded counters and flags. Flag 15 and flag 16. Light source is hard-coded as object number 9. Time limit/light is hard coded counter 8.
+- SCORE has some hard-coded behavior, related to objects being named in a certain way.
 
 ### Possible improvements
 
