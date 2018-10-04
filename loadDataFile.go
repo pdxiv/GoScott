@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"io/ioutil"
 	"regexp"
 	"strconv"
@@ -95,7 +95,7 @@ func loadData(filename string, gameData *gameStaticData) {
 		// Some testing, to evaluate the possibility of storing noun numbers,
 		// rather than text for items. This should probably require adding noun
 		// entries from word nouns, if they are missing in the noun list.
-		fmt.Println(foundNoun, findWordInList(foundNoun, noun, advVariable["wordLength"], 1))
+		// fmt.Println(foundNoun, findWordInList(foundNoun, noun, advVariable["wordLength"], 1))
 		// End of testing
 
 		itemNoun = append(itemNoun, foundNoun)
@@ -249,7 +249,6 @@ func getNumber(advField []string, fieldIndex *int) int {
 	cleanedText = r.FindStringSubmatch(advField[*fieldIndex])
 	*fieldIndex++
 	decodedNumber, _ = strconv.Atoi(cleanedText[0])
-	// fmt.Println(decodedNumber)
 	return decodedNumber
 }
 

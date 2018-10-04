@@ -50,11 +50,16 @@ func main() {
 	loadData(filename, &loadedGame)
 	var gameInstance gameDynamicData
 	initGame(loadedGame.advVariable, loadedGame.itemStartLocation, &gameInstance)
+	condition := initConditions()
+	command := initCommands()
+
 	// printSomeGameData(&gameInstance, &loadedGame)
 	showRoomDescription(&gameInstance, &loadedGame)
 	// for {
 	getConsoleInput(&loadedGame)
 	// }
+	fmt.Println(condition[0](1))
+	command[0](1)
 }
 
 func showRoomDescription(gameInstance *gameDynamicData, loadedGame *gameStaticData) {

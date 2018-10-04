@@ -3,158 +3,162 @@ package main
 // Skeleton of declaration for command logic
 // Missing a lot of important stuff, still :)
 
-func declareCommands() {
-	command := []func(int){
-		//   0 GETx
+type commandFunction func(int)
+
+func initCommands() []commandFunction {
+	command := []commandFunction{
+		//  0 GETx
 		func(actionId int) {
 
 		},
-		//   1 DROPx
+		//  1 DROPx
 		func(actionId int) {
 
 		},
-		//   2 GOTOy
+		//  2 GOTOy
 		func(actionId int) {
 
 		},
-		//   3 x->RM0
+		//  3 x->RM0
 		func(actionId int) {
 
 		},
-		//   4 NIGHT
+		//  4 NIGHT
 		func(actionId int) {
 
 		},
-		//   5 DAY
+		//  5 DAY
 		func(actionId int) {
 
 		},
-		//   6 SETz
+		//  6 SETz
 		func(actionId int) {
 
 		},
-		//   7 x->RM0
-		func(actionId int) {
-		},
-		//   8 CLRz
+		//  7 x->RM0
 		func(actionId int) {
 
 		},
-		//   9 DEAD
+		//  8 CLRz
 		func(actionId int) {
 
 		},
-		//  10 x->y
+		//  9 DEAD
 		func(actionId int) {
 
 		},
-		//  11 FINI
+		// 10 x->y
 		func(actionId int) {
 
 		},
-		//  12 DspRM
+		// 11 FINI
 		func(actionId int) {
 
 		},
-		//  13 SCORE
+		// 12 DspRM
 		func(actionId int) {
 
 		},
-		//  14 INV
+		// 13 SCORE
 		func(actionId int) {
 
 		},
-		//  15 SET0
+		// 14 INV
 		func(actionId int) {
 
 		},
-		//  16 CLR0
+		// 15 SET0
 		func(actionId int) {
 
 		},
-		//  17 FILL
+		// 16 CLR0
 		func(actionId int) {
 
 		},
-		//  18 CLS
+		// 17 FILL
 		func(actionId int) {
 
 		},
-		//  19 SAVE
+		// 18 CLS
 		func(actionId int) {
 
 		},
-		//  20 EXx,x
+		// 19 SAVE
 		func(actionId int) {
 
 		},
-		//  21 CONT
+		// 20 EXx,x
 		func(actionId int) {
 
 		},
-		//  22 AGETx
+		// 21 CONT
 		func(actionId int) {
 
 		},
-		//  23 BYx<-x
+		// 22 AGETx
 		func(actionId int) {
 
 		},
-		//  24 DspRM
+		// 23 BYx<-x
+		func(actionId int) {
+
+		},
+		// 24 DspRM
 		func(actionId int) {
 
 		},
 		// Newer post-1978 commands below
-		//  25 CT-1
+		// 25 CT-1
 		func(actionId int) {
 
 		},
-		//  26 DspCT
+		// 26 DspCT
 		func(actionId int) {
 
 		},
-		//  27 CT<-n
+		// 27 CT<-n
 		func(actionId int) {
 
 		},
-		//  28 EXRM0
+		// 28 EXRM0
 		func(actionId int) {
 
 		},
-		//  29 EXm,CT
+		// 29 EXm,CT
 		func(actionId int) {
 
 		},
-		//  30 CT+n
+		// 30 CT+n
 		func(actionId int) {
 
 		},
-		//  31 CT-n
+		// 31 CT-n
 		func(actionId int) {
 
 		},
-		//  32 SAYw
+		// 32 SAYw
 		func(actionId int) {
 
 		},
-		//  33 SAYwCR
+		// 33 SAYwCR
 		func(actionId int) {
 
 		},
-		//  34 SAYCR
+		// 34 SAYCR
 		func(actionId int) {
 
 		},
-		//  35 EXc,CT
+		// 35 EXc,CT
 		func(actionId int) {
 
 		},
-		//  36 DELAY
+		// 36 DELAY
 		func(actionId int) {
 
 		},
 	}
 	command[2](1)
+	return command
 }
 
 // Working Perl code below, for reference - for now

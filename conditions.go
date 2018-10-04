@@ -4,8 +4,10 @@ package main
 // Missing a lot of important stuff, still :)
 import "fmt"
 
-func declareConditions() {
-	condition := []func(int) bool{
+type conditionFunction func(int) bool
+
+func initConditions() []conditionFunction {
+	condition := []conditionFunction{
 		//   0 Par
 		func(parameter int) bool {
 			return parameter == 1
@@ -89,6 +91,7 @@ func declareConditions() {
 		},
 	}
 	fmt.Printf("\n%v\n", condition[2](1))
+	return condition
 }
 
 // Working Perl code below, for reference - for now
