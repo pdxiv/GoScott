@@ -10,7 +10,7 @@ Another innovation, was representing an adventure game as a virtual machine, whi
 
 With the obiquitous presence of the game engine on multiple platforms, came the unavoidable consequence of keeping the game data format the same, to maintain compatibility and portability. This meant that some of the original design decisions from the 1978 TRS-80 BASIC version seemed to have continued to limit the possibilities for new games, even when technology moved forward.
 
-For the scope of this article, this has the unfortunate consequence of limiting the size and complexity of the game world 
+For the scope of this article, we will examine the limitations of the original format, and see what can be done to keep the original philosophy of the engine as much as possible, without limiting the size and complexity of the game world. While the possibility of running on resource-constrained systems (such as vintage 8-bit computers and microcontrollers) shouldn't be discarded entirely, the focus should be on what is possible with modern computer platforms, in terms of memory availability.
 
 ## Data file format
 
