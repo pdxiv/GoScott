@@ -114,7 +114,7 @@ func loadData(filename string, gameData *gameStaticData) {
 	}
 
 	// Get footer variables
-	advVariable["engineVersion"] = getNumber(advData, &fieldIndex)
+	advVariable["interpreterVersion"] = getNumber(advData, &fieldIndex)
 	advVariable["adventureNumber"] = getNumber(advData, &fieldIndex)
 	advVariable["gameChecksum"] = getNumber(advData, &fieldIndex)
 

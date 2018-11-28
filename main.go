@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// The following constants denote various limitations in the engine
+// The following constants denote various limitations in the interpreter
 const roomZero = 0
 const roomInventory = -1
 const verbAuto = 1
