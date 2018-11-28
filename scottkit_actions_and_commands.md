@@ -58,12 +58,12 @@ clear_dark | | Clears flag 15, which indicates darkness. Exactly equivalent to c
 set_flag0 | | Sets flag 0. Exactly equivalent to set_flag 0.
 clear_flag0 | | Clears flag 0. Exactly equivalent to clear_flag 0.
 set_counter | number | Sets the value of the currently selected counter to the specified value. Negative values will not be honoured. Do not confuse this with the similarly named select_counter action!
-print_counter | | Prints the value of the currently selected counter. Apparently some drivers can't print values greater than 99, so if you're designing your games for maximum portability, you should avoid using numbers higher than this.
+print_counter | | Prints the value of the currently selected counter. Apparently some interpreters can't print values greater than 99, so if you're designing your games for maximum portability, you should avoid using numbers higher than this.
 dec_counter | | Decreases the value of the currently selected counter by one. The value cannot be decreased below zero. Surprisingly, there is no corresponding increase_counter action, but you can use add_to_counter 1.
 add_to_counter | number | Increases the value of the currently selected counter by the specified number.
 subtract_from_counter | number | Decreases the value of the currently selected counter by the specified number.
 select_counter | number | Chooses which of the sixteen counters is the current one. Subsequent dec_counter, print_counter, etc., actions will operate on the nominated counter. (Initially, counter 0 is used.)
 swap_room | | Swaps the player between the current location and a backup location. The backup location is initially undefined, so the first use of this should be immediately followed by a goto to a known room; the next use will bring the player back where it was first used.
 swap_specific_room | number | Like swap_room but works with one of a sixteen numbered backup locations, nominated by number. Swaps the current location with backup location number, so that subsequently doing swap_specific_room again with the same argument will result in returning to the original place. This can be used to implement vehicles.
-draw number | | Performs a "special action" that is dependent on the driver. For some drivers, it draws a picture specified but the number. In ScottKit (as in ScottFree), this does nothing.
+draw number | | Performs a "special action" that is dependent on the interpreter. For some interpreters, it draws a picture specified but the number. In ScottKit (as in ScottFree), this does nothing.
 continue | | Never use this action. It is used internally to allow a sequence of actions that is too long to fit into a single action slot, but there is no reason at all why you would ever explicitly use it: in fact, this kind of low-level detail is precisely what ScottKit is supposed to protect you from. I don't know why I'm even mentioning it.
