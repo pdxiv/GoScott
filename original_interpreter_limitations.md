@@ -16,7 +16,7 @@ For the scope of this article, we will examine the limitations of the original f
 
 ### Breakdown of limitations
 
-- 100 text messages
+- 100 text messages in action commands 2 and 4 (1 and 3 support addressing unlimited number of messages)
 - 150 nouns (because of how verbs and nouns are stored truncated in actions)
 
 ### Possible improvement
