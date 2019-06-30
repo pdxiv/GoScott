@@ -17,8 +17,7 @@ For the scope of this article, we will examine the limitations of the original f
 ### Breakdown of limitations
 
 - 100 text messages
-- 150 verbs
-- 150 nouns
+- 150 nouns (because of how verbs and nouns are stored truncated in actions)
 
 ### Possible improvement
 
