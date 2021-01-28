@@ -16,7 +16,7 @@ func getConsoleInput(loadedGame *gameStaticData) {
 	splitWord, extractStatus := extractWords(textInput)
 	if extractStatus {
 		truncatedWord := truncateWords(loadedGame, splitWord)
-		fmt.Printf("\"%s\", \"%s\"\n", truncatedWord[0], truncatedWord[1])
+		fmt.Printf("DEBUG: truncated words: \"%s\", \"%s\"\n", truncatedWord[0], truncatedWord[1])
 		identifyWords(loadedGame, truncatedWord)
 	}
 }
@@ -24,9 +24,9 @@ func getConsoleInput(loadedGame *gameStaticData) {
 func identifyWords(loadedGame *gameStaticData, sentence []string) {
 	// Identify possible verbs
 	wordLength := loadedGame.advVariable["wordLength"]
-	fmt.Println(findWordInList(sentence[0], loadedGame.verb, wordLength, 1))
-	fmt.Println(findWordInList(sentence[1], loadedGame.noun, wordLength, 1))
-	fmt.Println(findWordInList(sentence[1], loadedGame.itemNoun, wordLength, 0))
+	fmt.Println("DEBUG: found verb(s):", findWordInList(sentence[0], loadedGame.verb, wordLength, 1))
+	fmt.Println("DEBUG: found noun(s):", findWordInList(sentence[1], loadedGame.noun, wordLength, 1))
+	fmt.Println("DEBUG: found item noun(s):", findWordInList(sentence[1], loadedGame.itemNoun, wordLength, 0))
 }
 
 func findWordInList(wordToLookFor string, wordList []string, wordLength int, listOffset int) []int {
