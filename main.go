@@ -40,6 +40,12 @@ type gameDynamicData struct {
 	alternateRoom    []int
 }
 
+type identifiedWords struct {
+	verb   []int
+	noun   []int
+	object []int
+}
+
 func main() {
 	var loadedGame gameStaticData
 	if len(os.Args) < 2 {
