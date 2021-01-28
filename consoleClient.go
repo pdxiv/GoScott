@@ -31,6 +31,16 @@ func identifyWords(loadedGame *gameStaticData, sentence []string) identifiedWord
 	result.verb = findWordInList(sentence[0], loadedGame.verb, wordLength, 1)
 	result.noun = findWordInList(sentence[1], loadedGame.noun, wordLength, 1)
 	result.object = findWordInList(sentence[1], loadedGame.itemNoun, wordLength, 0)
+	// No noun found for object? Check if there's a synonym noun!
+	if len(result.object) <= 0 {
+		for _, wordIndex := range result.noun {
+			rootNoun := loadedGame.itemNoun[wordIndex]
+			foundItemIndex := findWordInList(rootNoun, loadedGame.itemNoun, wordLength, 0)
+			if len(foundItemIndex) > 0 {
+				result.object = append(result.object, foundItemIndex[0])
+			}
+		}
+	}
 	return result
 }
 
