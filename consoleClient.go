@@ -20,7 +20,7 @@ func getConsoleInput(loadedGame *gameStaticData) {
 		identifiedWords := identifyWords(loadedGame, truncatedWord)
 		fmt.Println("DEBUG: found verb(s):", identifiedWords.verb)
 		fmt.Println("DEBUG: found noun(s):", identifiedWords.noun)
-		fmt.Println("DEBUG: noun for object(s):", identifiedWords.object)
+		fmt.Println("DEBUG: found noun for object(s):", identifiedWords.object)
 	}
 }
 
