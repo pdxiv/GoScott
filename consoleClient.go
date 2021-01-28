@@ -26,7 +26,7 @@ func identifyWords(loadedGame *gameStaticData, sentence []string) {
 	wordLength := loadedGame.advVariable["wordLength"]
 	fmt.Println("DEBUG: found verb(s):", findWordInList(sentence[0], loadedGame.verb, wordLength, 1))
 	fmt.Println("DEBUG: found noun(s):", findWordInList(sentence[1], loadedGame.noun, wordLength, 1))
-	fmt.Println("DEBUG: found item noun(s):", findWordInList(sentence[1], loadedGame.itemNoun, wordLength, 0))
+	fmt.Println("DEBUG: noun for object(s):", findWordInList(sentence[1], loadedGame.itemNoun, wordLength, 0))
 }
 
 func findWordInList(wordToLookFor string, wordList []string, wordLength int, listOffset int) []int {

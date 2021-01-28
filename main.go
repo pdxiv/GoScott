@@ -58,7 +58,7 @@ func main() {
 	// for {
 	getConsoleInput(&loadedGame)
 	// }
-	fmt.Println(condition[0](1))
+	fmt.Println("DEBUG: condition:", condition[0](1))
 	command[0](1)
 }
 
