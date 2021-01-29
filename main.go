@@ -56,9 +56,10 @@ type gameDynamicData struct {
 }
 
 type identifiedWords struct {
-	verb   []int
-	noun   []int
-	object []int
+	verb      []int
+	noun      []int
+	object    []int
+	direction []int
 }
 
 func main() {

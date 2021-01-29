@@ -21,6 +21,7 @@ func getConsoleInput(loadedGame *gameStaticData) {
 		fmt.Println("DEBUG: found verb(s):", identifiedWords.verb)
 		fmt.Println("DEBUG: found noun(s):", identifiedWords.noun)
 		fmt.Println("DEBUG: found noun for object(s):", identifiedWords.object)
+		fmt.Println("DEBUG: found directions for noun(s):", identifiedWords.direction)
 	}
 }
 
