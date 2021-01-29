@@ -15,6 +15,21 @@ const counters = 8
 const flags = 32
 const alternateRooms = 6
 
+// These constants should be replaced by internal actions for GO and GET/DROP
+// Some new internal conditions and commands are required for this
+const verbGo = 1
+const verbGet = 10
+const verbDrop = 18
+const nounNorth = 1
+const nounSouth = 2
+const nounEast = 3
+const nounWest = 4
+const nounUp = 5
+const nounDown = 6
+const flagDark = 15
+const flagLampEmpty = 16
+const itemLight = 9
+
 // Contains all the data from a game file
 type gameStaticData struct {
 	advVariable       map[string]int

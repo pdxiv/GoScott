@@ -8,21 +8,6 @@ import (
 	"strings"
 )
 
-// These constants should be replaced by internal actions for GO and GET/DROP
-// Some new internal conditions and commands are required for this
-const verbGo = 2
-const verbGet = 11
-const verbDrop = 19
-const nounNorth = 2
-const nounSouth = 3
-const nounEast = 4
-const nounWest = 5
-const nounUp = 6
-const nounDown = 7
-const flagDark = 16
-const flagLampEmpty = 17
-const itemLight = 10
-
 func loadData(filename string, gameData *gameStaticData) {
 	fieldIndex := 0
 	var advVariable map[string]int
