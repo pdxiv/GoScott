@@ -55,7 +55,7 @@ type gameDynamicData struct {
 	alternateRoom    []int
 }
 
-type identifiedWords struct {
+type identifiedWordsObjectsExits struct {
 	verb      []int
 	noun      []int
 	object    []int

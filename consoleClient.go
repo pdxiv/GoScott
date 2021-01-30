@@ -17,18 +17,18 @@ func getConsoleInput(loadedGame *gameStaticData) {
 	if extractStatus {
 		truncatedWord := truncateWords(loadedGame, splitWord)
 		fmt.Printf("DEBUG: truncated words: \"%s\", \"%s\"\n", truncatedWord[0], truncatedWord[1])
-		identifiedWords := identifyWords(loadedGame, truncatedWord)
-		fmt.Println("DEBUG: found verb(s):", identifiedWords.verb)
-		fmt.Println("DEBUG: found noun(s):", identifiedWords.noun)
-		fmt.Println("DEBUG: found noun for object(s):", identifiedWords.object)
-		fmt.Println("DEBUG: found directions for noun(s):", identifiedWords.direction)
+		identifiedWordsObjectsExits := deduceThingsFromInput(loadedGame, truncatedWord)
+		fmt.Println("DEBUG: found verb(s):", identifiedWordsObjectsExits.verb)
+		fmt.Println("DEBUG: found noun(s):", identifiedWordsObjectsExits.noun)
+		fmt.Println("DEBUG: found noun for object(s):", identifiedWordsObjectsExits.object)
+		fmt.Println("DEBUG: found directions for noun(s):", identifiedWordsObjectsExits.direction)
 	}
 }
 
-func identifyWords(loadedGame *gameStaticData, sentence []string) identifiedWords {
+func deduceThingsFromInput(loadedGame *gameStaticData, sentence []string) identifiedWordsObjectsExits {
 	// Identify possible verbs
 	wordLength := loadedGame.advVariable["wordLength"]
-	var result identifiedWords
+	var result identifiedWordsObjectsExits
 	result.verb = findWordInList(sentence[0], loadedGame.verb, wordLength, 1)
 	result.noun = findWordInList(sentence[1], loadedGame.noun, wordLength, 1)
 	result.object = findWordInList(sentence[1], loadedGame.itemNoun, wordLength, 0)
