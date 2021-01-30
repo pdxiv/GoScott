@@ -42,6 +42,15 @@ func identifyWords(loadedGame *gameStaticData, sentence []string) identifiedWord
 			}
 		}
 	}
+	// Resolve the exit indices if word corresponds to a direction noun
+	for directionIndex, directionWordIndex := range []int{nounNorth, nounSouth, nounEast, nounWest, nounUp, nounDown} {
+		fmt.Println(directionIndex, directionWordIndex)
+		for _, resultNoun := range result.noun {
+			if resultNoun == directionWordIndex {
+				result.direction = append(result.direction, directionIndex)
+			}
+		}
+	}
 	return result
 }
 
